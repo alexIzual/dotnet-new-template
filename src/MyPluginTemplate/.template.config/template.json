@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "@de_fault",
+
+  "classifications": [ "businesslogic", "myplugin" ],
+  "identity": "MyPluginTemplate.Migrations",
+  "name": "MyPluginTemplate Migrations",
+  "shortName": "myplugin",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true,
+  "symbols": {
+    "includetest": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "migrations": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!includetest)",
+          "exclude": [ "MyPluginTemplate.Tests/**/*" ]
+        },
+        {
+          "condition": "(!migrations)",
+          "exclude": [ "Migrations/**/*" ]
+        }
+      ]
+    }
+  ]
+}
